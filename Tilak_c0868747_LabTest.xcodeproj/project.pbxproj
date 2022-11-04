@@ -15,6 +15,7 @@
 		41F0ABB02915C8FB00E42801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F0ABAE2915C8FB00E42801 /* LaunchScreen.storyboard */; };
 		41F0ABB82915CB3300E42801 /* LapTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0ABB72915CB3300E42801 /* LapTVC.swift */; };
 		41F0ABBA2915CE7F00E42801 /* LapTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0ABB92915CE7F00E42801 /* LapTVCell.swift */; };
+		41F0ABBD2915D63E00E42801 /* LapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0ABBC2915D63E00E42801 /* LapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		41F0ABB12915C8FB00E42801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41F0ABB72915CB3300E42801 /* LapTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTVC.swift; sourceTree = "<group>"; };
 		41F0ABB92915CE7F00E42801 /* LapTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTVCell.swift; sourceTree = "<group>"; };
+		41F0ABBC2915D63E00E42801 /* LapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		41F0ABBB2915D29E00E42801 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				41F0ABBC2915D63E00E42801 /* LapModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41F0ABA82915C8FA00E42801 /* ViewController.swift in Sources */,
+				41F0ABBD2915D63E00E42801 /* LapModel.swift in Sources */,
 				41F0ABB82915CB3300E42801 /* LapTVC.swift in Sources */,
 				41F0ABA42915C8FA00E42801 /* AppDelegate.swift in Sources */,
 				41F0ABA62915C8FA00E42801 /* SceneDelegate.swift in Sources */,
