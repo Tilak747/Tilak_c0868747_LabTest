@@ -13,6 +13,8 @@
 		41F0ABAB2915C8FA00E42801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F0ABA92915C8FA00E42801 /* Main.storyboard */; };
 		41F0ABAD2915C8FB00E42801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F0ABAC2915C8FB00E42801 /* Assets.xcassets */; };
 		41F0ABB02915C8FB00E42801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F0ABAE2915C8FB00E42801 /* LaunchScreen.storyboard */; };
+		41F0ABB82915CB3300E42801 /* LapTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0ABB72915CB3300E42801 /* LapTVC.swift */; };
+		41F0ABBA2915CE7F00E42801 /* LapTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0ABB92915CE7F00E42801 /* LapTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		41F0ABAC2915C8FB00E42801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41F0ABAF2915C8FB00E42801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41F0ABB12915C8FB00E42801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41F0ABB72915CB3300E42801 /* LapTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTVC.swift; sourceTree = "<group>"; };
+		41F0ABB92915CE7F00E42801 /* LapTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		41F0ABA22915C8FA00E42801 /* Tilak_c0868747_LabTest */ = {
 			isa = PBXGroup;
 			children = (
+				41F0ABBB2915D29E00E42801 /* model */,
+				41F0ABB92915CE7F00E42801 /* LapTVCell.swift */,
 				41F0ABA32915C8FA00E42801 /* AppDelegate.swift */,
 				41F0ABA52915C8FA00E42801 /* SceneDelegate.swift */,
 				41F0ABA72915C8FA00E42801 /* ViewController.swift */,
@@ -63,8 +69,16 @@
 				41F0ABAC2915C8FB00E42801 /* Assets.xcassets */,
 				41F0ABAE2915C8FB00E42801 /* LaunchScreen.storyboard */,
 				41F0ABB12915C8FB00E42801 /* Info.plist */,
+				41F0ABB72915CB3300E42801 /* LapTVC.swift */,
 			);
 			path = Tilak_c0868747_LabTest;
+			sourceTree = "<group>";
+		};
+		41F0ABBB2915D29E00E42801 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				41F0ABA82915C8FA00E42801 /* ViewController.swift in Sources */,
+				41F0ABB82915CB3300E42801 /* LapTVC.swift in Sources */,
 				41F0ABA42915C8FA00E42801 /* AppDelegate.swift in Sources */,
 				41F0ABA62915C8FA00E42801 /* SceneDelegate.swift in Sources */,
+				41F0ABBA2915CE7F00E42801 /* LapTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
