@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var labelTime: UILabel!
+    @IBOutlet weak var labelLapTime: UILabel!
     
     @IBOutlet weak var btnStart: UIButton!
     
@@ -62,7 +63,11 @@ class ViewController: UIViewController {
     
     func timerCounter(){
         mainCounter = mainCounter + 1
+        let time = convertToSeconds(seconds: mainCounter)
         
+    }
+    func convertToSeconds(seconds:Int) -> (Int,Int,Int){
+        return (seconds / 3600 , (seconds % 3600) / 60 , (seconds % 3600 ) % 60)
     }
 
     @IBAction func resumeStopTimer() {
