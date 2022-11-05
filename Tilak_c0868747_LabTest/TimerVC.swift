@@ -61,6 +61,20 @@ class TimerVC: UIViewController{
     @objc func updateCounter(){
         countDownTime -= 1
         lblTime.text = "Countdown remaining : \(countDownTime)"
+        
+        if(countDownTime == 0){
+            timer?.invalidate()
+            let alert = UIAlertController(title: "Complete", message: "Timer has completed", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel){
+                _ in
+                self.lblTime.isHidden = true
+                
+                self.btnStart.setTitle("Start", for: .normal)
+                self.isRunning = false
+                self.countDownTime = 0
+            })
+            present(alert, animated: true)
+        }
     }
     
     @IBAction func cancelCountdown(_ sender: Any) {
