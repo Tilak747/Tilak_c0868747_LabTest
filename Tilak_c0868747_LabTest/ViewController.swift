@@ -55,6 +55,12 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func gotoTimer(_ sender: Any) {
+        let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC = mainSB.instantiateViewController(withIdentifier: "TimerScene") as! TimerVC
+//        self.navigationController?.pushViewController(homeVC, animated: true)
+        self.present(homeVC, animated: true)
+    }
     
     var isRunning =  false
     var isPaused = false
