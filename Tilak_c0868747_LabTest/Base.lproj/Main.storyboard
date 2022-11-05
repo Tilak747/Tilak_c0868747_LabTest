@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,30 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u1-At-eQi">
-                                <rect key="frame" x="32.999999999999993" y="775.66666666666663" width="85.333333333333314" height="34.333333333333371"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u1-At-eQi">
+                                <rect key="frame" x="33" y="775.66666666666663" width="61.333333333333343" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Resume"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                 <connections>
                                     <action selector="resumeStopTimer" destination="BYZ-38-t0r" eventType="touchUpInside" id="Exr-ic-cxu"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzf-sr-EM6">
-                                <rect key="frame" x="289.66666666666669" y="775.66666666666663" width="67.333333333333314" height="34.333333333333371"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzf-sr-EM6">
+                                <rect key="frame" x="304.66666666666669" y="775.66666666666663" width="52.333333333333314" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Lap"/>
                                 <connections>
                                     <action selector="resetLapTimer" destination="BYZ-38-t0r" eventType="touchUpInside" id="zIi-ns-CGS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6o-wy-Ju8">
-                                <rect key="frame" x="16" y="796" width="358" height="14"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start">
-                                    <color key="baseForegroundColor" name="AccentColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="startTimer" destination="BYZ-38-t0r" eventType="touchUpInside" id="kia-ef-zMr"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cpZ-19-iZE">
@@ -70,6 +59,17 @@
                                 </constraints>
                                 <color key="sectionIndexColor" systemColor="labelColor"/>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-Po-fmf">
+                                <rect key="frame" x="127" y="68" width="171" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Stopwatch"/>
+                                    <segment title="Timer"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggle" destination="BYZ-38-t0r" eventType="valueChanged" id="yj3-g0-JHW"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,28 +78,24 @@
                             <constraint firstItem="WRu-uN-d1y" firstAttribute="top" secondItem="cpZ-19-iZE" secondAttribute="bottom" constant="31.670000000000002" id="1Me-7Z-qVj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cpZ-19-iZE" secondAttribute="trailing" constant="127.33" id="4P3-RD-Y6l"/>
                             <constraint firstItem="cpZ-19-iZE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="356" id="8Hq-eC-Hmh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c6o-wy-Ju8" secondAttribute="trailing" constant="16" id="9nd-Ar-6gF"/>
                             <constraint firstItem="pzf-sr-EM6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DlM-pq-WWC"/>
                             <constraint firstItem="WRu-uN-d1y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="EQc-D8-HRS"/>
-                            <constraint firstItem="c6o-wy-Ju8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="H7Q-rX-geO"/>
                             <constraint firstItem="cpZ-19-iZE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="HcK-D2-C7O"/>
                             <constraint firstItem="6u1-At-eQi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OmD-8S-3Ic"/>
                             <constraint firstItem="cpZ-19-iZE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="QhX-qi-iec"/>
-                            <constraint firstItem="c6o-wy-Ju8" firstAttribute="top" secondItem="cpZ-19-iZE" secondAttribute="bottom" constant="334.32999999999998" id="fsq-26-dme"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WRu-uN-d1y" secondAttribute="trailing" constant="33" id="itw-Xp-eWJ"/>
                             <constraint firstItem="cpZ-19-iZE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="356" id="ugq-nB-Ii3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cpZ-19-iZE" secondAttribute="trailing" constant="127.33" id="v7g-te-0Lp"/>
                             <constraint firstItem="6u1-At-eQi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="vod-Kj-VHC"/>
-                            <constraint firstItem="c6o-wy-Ju8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zjR-OA-Mr4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnReset" destination="pzf-sr-EM6" id="Zqu-oZ-reu"/>
                         <outlet property="btnResume" destination="6u1-At-eQi" id="8nE-MX-rBv"/>
-                        <outlet property="btnStart" destination="c6o-wy-Ju8" id="GHO-H4-neC"/>
                         <outlet property="labelLapTime" destination="SwN-ZM-DEX" id="S9r-mr-gVA"/>
                         <outlet property="labelTime" destination="Yzj-nG-Pi1" id="78r-Tp-Tny"/>
                         <outlet property="lapTableView" destination="WRu-uN-d1y" id="77J-eP-Gq8"/>
+                        <outlet property="segmentedController" destination="Fbc-Po-fmf" id="IuY-Dy-pqB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,9 +148,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

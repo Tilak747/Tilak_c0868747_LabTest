@@ -10,10 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var segmentedController: UISegmentedControl!
+    
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var labelLapTime: UILabel!
-    
-    @IBOutlet weak var btnStart: UIButton!
     
     @IBOutlet weak var btnResume: UIButton!
     
@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     
     var lapArray:Array<LapModel> = []
     
-    
+    @IBOutlet weak var tabBar: UITabBar!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +32,29 @@ class ViewController: UIViewController {
         lapTableView.delegate = self
         lapTableView.dataSource = self
         lapTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        initData()
+        
+
     }
     
+    @IBAction func toggle() {
+        
+        
+        
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag {
+           case 1 :
+            btnResume.isHidden = true
+            break
+        default:
+            btnResume.isHidden = false
+            break
+        }
+    }
+
     
     var isRunning =  false
     var isPaused = false
@@ -48,19 +70,19 @@ class ViewController: UIViewController {
         labelTime.isHidden = false
         
         labelLapTime.text = "00:00:00"
-//        labelLapTime.isHidden = true
         
-        
-        btnStart.isHidden = false
-        btnStart.setTitle("Start", for: .normal)
-        btnStart.setTitleColor(UIColor.blue, for: .normal)
-        
-        btnResume.isHidden = true
+        btnResume.isHidden = false
         btnResume.setTitleColor(UIColor.blue, for: .normal)
-        btnReset.isHidden = true
-        btnResume.setTitleColor(UIColor.blue, for: .normal)
+        btnResume.setTitle("Start", for: .normal)
+        
+        btnReset.isHidden = false
+        btnReset.setTitleColor(UIColor.blue, for: .normal)
+        btnReset.setTitle("Lap", for: .normal)
         
         lapArray = []
+        
+        mainTimerCounting = false
+        lapTimerCounting = false
     }
     
     
@@ -74,7 +96,6 @@ class ViewController: UIViewController {
     var isResetable : Bool = false
     @IBAction func startTimer() {
         
-        btnStart.isHidden = true
         isRunning = true
         
         btnResume.isHidden = false
@@ -114,15 +135,27 @@ class ViewController: UIViewController {
 
     @IBAction func resumeStopTimer() {
         
-        //pause so resume it
-        if(isPaused){
+        if(mainTimerCounting){
+            mainTimerCounting = false
+            isResetable = true
             
-            isPaused = false
+            btnResume.setTitle("Resume", for: .normal)
+            btnResume.setTitleColor(UIColor.blue, for: .normal)
+            
+            btnReset.setTitle("Reset", for: .normal)
+            
+            mainTimer?.invalidate()
+            lapTimer?.invalidate()
+            
+            
+        }
+        else{
+            
+            mainTimerCounting = true
             isResetable = false
             
             btnResume.setTitle("Stop", for: .normal)
             btnResume.setTitleColor(UIColor.red, for: .normal)
-            
             
             btnReset.setTitle("Lap", for: .normal)
             
@@ -143,22 +176,7 @@ class ViewController: UIViewController {
                     repeats: true
                 )
             }
-            
         }
-        //running so pause it
-        else{
-            isPaused = true
-            isResetable = true
-            btnResume.setTitle("Resume", for: .normal)
-            btnResume.setTitleColor(UIColor.blue, for: .normal)
-            
-            
-            btnReset.setTitle("Reset", for: .normal)
-            
-            mainTimer?.invalidate()
-            lapTimer?.invalidate()
-        }
-            
     
     }
     
@@ -220,6 +238,7 @@ class ViewController: UIViewController {
     
     
 }
+
 
 extension ViewController:UITableViewDelegate,UITableViewDataSource{
     
