@@ -19,13 +19,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var btnReset: UIButton!
     
+    @IBOutlet weak var lapTableView: UITableView!
     
     var lapArray:Array<LapModel> = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
+        lapTableView.delegate = self
+        lapTableView.dataSource = self
+        lapTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     
@@ -179,14 +184,22 @@ class ViewController: UIViewController {
             
             initData()
             
+            lapTableView.reloadData()
+            
         }
         else{
             
+            if(lapArray.isEmpty){
+                let lap = LapModel(lapElapseTime: mainCounter, lapStoppedTime: mainCounter)
+                lapArray.append(lap)
+            }
+            else{
+                let lap = LapModel(lapElapseTime: lapCounter, lapStoppedTime: mainCounter)
+                lapArray.append(lap)
+            }
+            
             lapTimer?.invalidate()
             lapCounter = 0
-            
-            let lap = LapModel(lapElapseTime: lapCounter, lapStoppedTime: mainCounter)
-            lapArray.append(lap)
             
             labelLapTime.isHidden = false
             lapTimerCounting = true
@@ -198,6 +211,8 @@ class ViewController: UIViewController {
                 repeats: true
             )
             
+            lapTableView.reloadData()
+            
         }
         
     }
@@ -206,3 +221,29 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController:UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lapArray.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
+        let lap = lapArray[indexPath.row]
+        
+        let lapTime = convertToSeconds(seconds: lap.lapElapseTime)
+        
+        let lapValue = "\(String(format: "%2d", lapTime.0)) : \(String(format: "%2d", lapTime.1)) : \(String(format: "%2d", lapTime.2))"
+        
+        cell.textLabel?.text = "Lap \(indexPath.row+1): \(lapValue)"
+        
+        return cell
+    }
+    
+    
+}
